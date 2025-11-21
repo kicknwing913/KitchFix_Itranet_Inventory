@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personnel Action Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="gradient"></div>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Cook. Lead. Win the Day.</p>
+        <h1>Submit HR &amp; Accounting actions</h1>
+        <p class="subtitle">Capture changes for your team and alert the right partners instantly.</p>
+        <div class="hero-buttons">
+          <a href="#personnel-form" class="cta" id="start-submission">Start a submission</a>
+          <button type="button" class="ghost">View previous requests</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="eyebrow">Quick glance</p>
+        <div class="stat-row">
+          <div>
+            <p class="label">Open actions</p>
+            <strong>12</strong>
+          </div>
+          <div class="pill light">Live</div>
+        </div>
+        <p class="muted">HR will respond to urgent items within 1 business day.</p>
+      </div>
+    </section>
+
+    <section class="card form-card" id="personnel-form-card">
+      <div class="card-header">
+        <div>
+          <p class="eyebrow">Form</p>
+          <h2>Submit personnel action</h2>
+          <p class="subtitle">Fill out the details below so HR can process your request.</p>
+        </div>
+        <div class="badge-row">
+          <span class="badge success">Trusted</span>
+          <span class="badge info">Secure</span>
+        </div>
+      </div>
+
+      <form id="personnel-form" novalidate>
+        <section class="form-section">
+          <label for="email">Submitter Email</label>
+          <input id="email" name="email" type="email" placeholder="yourname@example.com" autocomplete="email" />
+          <p class="hint">We prefill this from your Google Workspace sign-in when available.</p>
+        </section>
+
+        <section class="form-section">
+          <label for="name" class="required">Employee Name</label>
+          <input id="name" name="name" required />
+        </section>
+
+        <section class="form-section">
+          <label for="location" class="required">Location</label>
+          <select id="location" name="location" required>
+            <option value="">Loading locations...</option>
+          </select>
+          <p class="hint">Locations are pulled from Performance_OpsHub_Data.</p>
+        </section>
+
+        <section class="form-section">
+          <p class="label required">Action items</p>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="actionItems" value="Separation" /> Separation</label>
+            <label><input type="checkbox" name="actionItems" value="Reclassification to different department" /> Reclassification to different department</label>
+            <label><input type="checkbox" name="actionItems" value="Change in rate of pay" /> Change in rate of pay (if title is changing, include new title in Explanation box below)</label>
+            <label><input type="checkbox" name="actionItems" value="Change in title" /> Change in title</label>
+            <label><input type="checkbox" name="actionItems" value="Change between part-time and full-time" /> Change from/to part-time (less than 30 hours/week) to full-time (more than 30 hours/week) or vice versa</label>
+            <label><input type="checkbox" name="actionItems" value="Add gratuity" /> Add gratuity</label>
+            <label><input type="checkbox" name="actionItems" value="Add one time deduction" /> Add one time deduction</label>
+            <label><input type="checkbox" name="actionItems" value="Add cell phone reimbursement" /> Add cell phone reimbursement</label>
+            <label><input type="checkbox" name="actionItems" value="Add holiday pay" /> Add holiday pay</label>
+            <label><input type="checkbox" name="actionItems" value="Add one-time bonus" /> Add one-time bonus</label>
+          </div>
+          <div class="inline-alert">
+            <span class="alert-icon" aria-hidden="true">⚠️</span>
+            <span>Reimbursements, perdiems and milage are now submitted through rippling</span>
+          </div>
+          <p class="error" data-error-for="actionItems"></p>
+        </section>
+
+        <section class="form-section">
+          <label for="reason">Reason / Additional info</label>
+          <textarea id="reason" name="reason" rows="3"></textarea>
+        </section>
+
+        <section class="form-section" id="separation-details" hidden>
+          <label for="separationReason" class="required">Separation reason</label>
+          <select id="separationReason" name="separationReason">
+            <option value="">Select a reason</option>
+            <optgroup label="Involuntary">
+              <option value="Termination">Termination</option>
+              <option value="Layoff">Layoff</option>
+              <option value="Furlough">Furlough</option>
+              <option value="End of Season">End of Season</option>
+            </optgroup>
+            <optgroup label="Voluntary">
+              <option value="Resignation">Resignation</option>
+              <option value="Job Abandonment">Job Abandonment</option>
+            </optgroup>
+          </select>
+          <div class="form-grid compact">
+            <div class="form-section">
+              <label for="lastDay">In case of separation, enter the employee's last day of actual work</label>
+              <input id="lastDay" name="lastDay" type="date" />
+            </div>
+            <div class="form-section">
+              <p class="label">In case of separation, is the employee eligible for re-hire?</p>
+              <div class="radio-group">
+                <label><input type="radio" name="eligibleRehire" value="Yes" /> Yes</label>
+                <label><input type="radio" name="eligibleRehire" value="No" /> No</label>
+                <label><input type="radio" name="eligibleRehire" value="N/A" /> N/A</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-grid">
+          <div class="form-section">
+            <label for="effectiveDate">Effective date</label>
+            <input id="effectiveDate" name="effectiveDate" type="date" />
+          </div>
+          <div class="form-section">
+            <label for="comeToWork">Can employee come to work in the interim?</label>
+            <select id="comeToWork" name="comeToWork">
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="N/A">N/A</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="hoursWeek">Hours per week</label>
+            <input id="hoursWeek" name="hoursWeek" type="number" min="0" />
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="submit">Submit</button>
+          <button type="reset" class="secondary">Clear form</button>
+        </div>
+        <p class="success" id="success-message" hidden>Submitted! We will review your request.</p>
+        <p class="error" id="error-message" hidden></p>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
